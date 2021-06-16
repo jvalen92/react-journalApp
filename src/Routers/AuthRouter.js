@@ -3,28 +3,31 @@ import {
     Switch,
     Route,
     Redirect
-  } from "react-router-dom";
+} from "react-router-dom";
 import LoginScreen from '../Components/auth/LoginScreen';
 import RegisterScreen from '../Components/auth/RegisterScreen';
+import {routes} from '../const';
 
 const AuthRouter = () => {
     return (
-        <div>
-            <Switch>
-                <Route
-                    exact
-                    path="auth/login"
-                    component={LoginScreen}
-                />
+        <div className='auth__main'>
+            <div className='auth__box-container'>
+                <Switch>
+                    <Route
+                        exact
+                        path={routes.login}
+                        component={LoginScreen}
+                    />
 
-                <Route
-                    exact
-                    path="auth/register"
-                    component={RegisterScreen}
-                />
+                    <Route
+                        exact
+                        path={routes.register}
+                        component={RegisterScreen}
+                    />
 
-                <Redirect to="/auth/login" />
-            </Switch>
+                    <Redirect to={routes.login} />
+                </Switch>
+            </div>
         </div>
     )
 }
