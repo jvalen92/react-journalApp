@@ -1,29 +1,55 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import {routes} from '../../const'
+import { routes } from '../../const'
+import { useForm } from '../../hooks/useForm';
+import { useDispatch } from 'react-redux'
+import { login, startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
+
 
 
 const LoginScreen = () => {
+
+    const distpatch = useDispatch();
+
+    const [formValues, handleInputChange] = useForm({
+        email: 'sebas.1628@gmail.com',
+        password: '12345'
+    });
+
+    const { email, password } = formValues;
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        distpatch(startLoginEmailPassword(email, password));
+    }
+
+    const handleGoogleLogin = (e) => {
+        distpatch(startGoogleLogin())
+    }
 
     return (
         <>
             <h3 className='.auth__tittle'>Login</h3>
 
-            <form>
+            <form onSubmit={handleLogin}>
 
-                <input 
+                <input
                     type="text"
                     placeholder="Email"
                     name="email"
                     className="auth__input"
                     autoComplete="off"
+                    value={email}
+                    onChange={handleInputChange}
                 />
 
-                <input 
+                <input
                     type="password"
                     placeholder="Password"
                     name="password"
                     className="auth__input"
+                    value={password}
+                    onChange={handleInputChange}
                 />
 
 
@@ -34,12 +60,13 @@ const LoginScreen = () => {
                     Login
                 </button>
 
-                
+
                 <div className="auth__social-networks">
                     <p>Login with social networks</p>
 
-                    <div 
+                    <div
                         className="google-btn"
+                        onClick={handleGoogleLogin}
                     >
                         <div className="google-icon-wrapper">
                             <img className="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
@@ -50,11 +77,11 @@ const LoginScreen = () => {
                     </div>
                 </div>
 
-                <Link 
+                <Link
                     to={routes.register}
                     className="link"
                 >
-                    Create new account    
+                    Create new account
                 </Link>
 
             </form>
