@@ -24,7 +24,7 @@ const Sidebar = () => {
                     <span >{name}</span>
                 </h3>
 
-                <button 
+                <button
                     className="btn"
                     onClick={handleLogout}
                 >
@@ -32,7 +32,7 @@ const Sidebar = () => {
                 </button>
             </div>
 
-            <div 
+            <div
                 className="journal__new-entry"
                 onClick={handleAddNew}
             >

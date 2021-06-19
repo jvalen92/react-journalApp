@@ -9,8 +9,8 @@ const JournalEntries = () => {
         <div className="journal__entries">
             {
                 notes.map(note => (
-                    <JournalEntry 
-                        key={note.id} 
+                    <JournalEntry
+                        key={note.id}
                         {...note}
                     />
                 ))

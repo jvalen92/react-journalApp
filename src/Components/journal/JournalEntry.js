@@ -16,7 +16,7 @@ const JournalEntry = ({ id, date, title, body, url }) => {
         }))
     }
     return (
-        <div 
+        <div
             className="journal__entry pointer"
             onClick={handleEntryClick}>
 
