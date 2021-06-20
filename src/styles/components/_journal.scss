@@ -37,7 +37,7 @@
     transition: color .3s ease;
 
     &:hover {
-        color: darken($color: white, $amount: 20);
+        color: darken($color: white, $amount: 30);
     }
 }
 
@@ -68,11 +68,19 @@
     overflow: hidden;
     margin-right: 10px;
     justify-content: space-between;
+    align-items: center;
+
+    &:hover {
+        background-color: $primary;
+        color: $white;
+    }
 }
 
 .journal__entry-picture {
     height: 75px;
     width: 75px;
+    border-radius: 10px;
+    margin-left: 5px;
 }
 
 
