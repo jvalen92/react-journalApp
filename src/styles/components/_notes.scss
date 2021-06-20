@@ -50,5 +50,7 @@
 .notes__image img {
     box-shadow: 2px 2px 2px 2px $light-grey;
     height: 150px;
+    width: 150px;
+    background-size: cover;
     border-radius: 10px;
 }
