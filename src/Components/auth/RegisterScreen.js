@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeError, setError } from "../../actions/ui";
 import { startRegisterWithCredentials } from "../../actions/auth";
 
-const RegisterScreen = () => {
+export const RegisterScreen = () => {
   const dispatch = useDispatch();
   const { msgError } = useSelector((state) => state.ui);
 

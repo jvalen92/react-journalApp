@@ -7,14 +7,14 @@ import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
 
 
 
-const LoginScreen = () => {
+export const LoginScreen = () => {
 
     const distpatch = useDispatch();
     const {loading} = useSelector(state => state.ui)
 
     const [formValues, handleInputChange] = useForm({
-        email: 'amaguirre09@gmail.com',
-        password: '123456'
+        email: '',
+        password: ''
     });
 
     const { email, password } = formValues;

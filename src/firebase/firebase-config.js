@@ -1,24 +1,21 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDLRfvxsYiUkYgYZS6f3sGBHxKUMMs5Llg",
-    authDomain: "journalapp-36c3e.firebaseapp.com",
-    projectId: "journalapp-36c3e",
-    storageBucket: "journalapp-36c3e.appspot.com",
-    messagingSenderId: "750079952712",
-    appId: "1:750079952712:web:8995904143ea282c3d557d"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  apiKey: process.env.REACT_APP_APIKEY,
+  authDomain: process.env.REACT_APP_AUTHDOMAIN,
+  projectId: process.env.REACT_APP_PROJECTID,
+  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+  appId: process.env.REACT_APP_APPID,
+};
 
-  const db = firebase.firestore();
-  const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-  export {
-      db,
-      googleAuthProvider,
-      firebase
-  }
+const db = firebase.firestore();
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export { db, googleAuthProvider, firebase };
